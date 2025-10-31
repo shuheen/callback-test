@@ -51,7 +51,7 @@
             console.log("Event Data", event.data)
             console.log("Origin", event.data.origin)
             console.log("Document Referrer", new URL(document.referrer).origin)
-            
+            console.log(parentOrigin)
             // Now respond safely to the exact same origin
             window.parent.postMessage(
             {
