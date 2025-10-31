@@ -47,10 +47,11 @@
             console.log(event)
         // Receive the handshake from parent
         if (event.data?.type === 'PARENT_ORIGIN') {
-            parentOrigin = event.data.origin;
+            parentOrigin = "https://google.com";
             console.log("Event Data", event.data)
             console.log("Origin", event.data.origin)
             console.log("Document Referrer", new URL(document.referrer).origin)
+            
             // Now respond safely to the exact same origin
             window.parent.postMessage(
             {
@@ -58,7 +59,7 @@
                 status: 'success',
                 timestamp: new Date().toISOString(),
             },
-            document.referrer ? new URL(document.referrer).origin : '*'
+            parentOrigin
             );
         }
         });
