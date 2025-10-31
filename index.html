@@ -58,7 +58,7 @@
                 status: 'success',
                 timestamp: new Date().toISOString(),
             },
-            parentOrigin
+            document.referrer ? new URL(document.referrer).origin : '*'
             );
         }
         });
